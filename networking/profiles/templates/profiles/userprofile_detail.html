@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="userprofile-container">
+  <div class="userprofile-details">
+    <h1>{{ userprofile.name }}</h1>
+    <p>DOB: {{ userprofile.DOB }}</p>
+    <p>Spouse: {{ userprofile.spouse_name }} - DOB: {{ userprofile.spouse_DOB }}</p>
+    <p>Location: {{ userprofile.home_city }}, {{ userprofile.home_state }}</p>
+    <p>Contact: {{ userprofile.phone_number }} | {{ userprofile.email }}</p>
+  </div>
+</section>
+{% endblock %}

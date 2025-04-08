@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+{% endblock %}
+{% block content %}
+<h1 class="profile-list-title">User Profile List</h1>
+<div class="profile-list-container">
+  {% for userprofile in userprofiles %}
+  <div class="profile-row">
+    <div class="profile-block">
+      <h2>{{ userprofile.name }}</h2>
+      <span>{{ userprofile.DOB }}</span>
+    </div>
+    <div class="profile-block">
+      <h3>{{ userprofile.spouse_name }}</h3>
+      <span>{{ userprofile.spouse_DOB }}</span>
+    </div>
+    <div class="profile-block">
+      <p>{{ userprofile.home_state }}</p>
+    </div>
+    <div class="profile-block">
+      <p>{{ userprofile.email }}</p>
+    </div>
+    <div class="profile-actions">
+      <a href="{% url 'profile_update' userprofile.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'profile_delete' userprofile.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('profiles/', include('profiles.urls')),
     path('', HomeView.as_view(), name='home'),  # Home page at the root URL
-
+  
 
   
 ]

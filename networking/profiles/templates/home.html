@@ -1,5 +1,8 @@
-<!-- Example content in profiles/templates/home.html -->
+{% extends 'base.html' %}
 
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,10 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome to Our Site!</h1>
-    <p>This is the home page.</p>
+    <h1 class="home-h1">Networking Profiles!</h1>
+    <h2 class="home-h2">Know who you can call on..</h2>
+    <p class="home-p">It can be helpful to know who you can count on today. Use this to know who is there as a resource when assistance is needed. A contact list can by full of decades of contacts, this is not that. These are your people you, or your spouse, can call on, today. And they will be there, because this list you keep current.</p>
 </body>
 </html>
+{% endblock %}
+

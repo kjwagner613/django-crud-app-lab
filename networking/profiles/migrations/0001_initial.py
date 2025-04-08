@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='UserProfile',
+            name='userprofile',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('field_of_work', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='profiles.fieldofwork')),
