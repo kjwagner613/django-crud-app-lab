@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Delete Field of Work</h2>
+<p>Are you sure you want to delete "{{ object.name }}"?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, delete</button>
+  <a href="{% url 'field_list' %}">Cancel</a>
+</form>
+{% endblock %}

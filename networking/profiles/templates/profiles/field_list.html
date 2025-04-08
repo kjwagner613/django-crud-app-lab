@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Fields of Work</h2>
+<a href="{% url 'field_create' %}">Add New Field</a>
+<ul>
+  {% for field in fields %}
+    <li>
+      {{ field.name }}
+      <a href="{% url 'field_update' field.id %}">Edit</a>
+      <a href="{% url 'field_delete' field.id %}">Delete</a>
+    </li>
+  {% empty %}
+    <li>No fields defined yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -6,7 +6,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import UserProfile
+from .models import FieldOfWork, UserProfile
 from .forms import UserProfileForm
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
@@ -59,3 +59,26 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
+
+class FieldOfWorkListView(ListView):
+    model = FieldOfWork
+    template_name = 'profiles/field_list.html'
+    context_object_name = 'fields'
+
+class FieldOfWorkCreateView(CreateView):
+    model = FieldOfWork
+    fields = ['name']
+    template_name = 'profiles/field_form.html'
+    success_url = reverse_lazy('field_list')
+
+class FieldOfWorkUpdateView(UpdateView):
+    model = FieldOfWork
+    fields = ['name']
+    template_name = 'profiles/field_form.html'
+    success_url = reverse_lazy('field_list')
+
+class FieldOfWorkDeleteView(DeleteView):
+    model = FieldOfWork
+    template_name = 'profiles/field_confirm_delete.html'
+    success_url = reverse_lazy('field_list')
